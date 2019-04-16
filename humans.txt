@@ -1,0 +1,11 @@
+/* TEAM */
+                
+Your title: Bc.Patrik Čada                         
+Site: https://pc-webdesign.cz                       
+Facebook: https://www.facebook.com/pcwebdesign/
+Location: City, Country.
+						                    
+/* SITE */
+                                         
+Standards: HTML5, CSS3, Twig              
+Software: Built with [Timber](http://upstatement.com/timber) by Upstatement, theme is based on Foundationpress(https://foundationpress.olefredrik.com)

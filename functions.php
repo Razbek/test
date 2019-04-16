@@ -56,3 +56,16 @@ require_once( 'library/gutenberg.php' );
 
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/class-foundationpress-protocol-relative-theme-assets.php' );
+if ( class_exists( 'Timber' ) ){
+	//Timber cache
+    Timber::$cache = false;
+	/**
+	 * Sets the directories (inside your theme) to find .twig files
+	 */
+	Timber::$dirname = array( 'twig-templates', 'twig-templates/twig-page-templates', '/src/assets/images', '/src/assets/images/icons' );
+	/**
+	 * By default, Timber does NOT autoescape values. Want to enable Twig's autoescape?
+	 * No prob! Just set this value to true
+	 */
+	Timber::$autoescape = false;
+}

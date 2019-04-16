@@ -12,10 +12,10 @@
     ],
     "require": {
         "composer/installers": "~1.0"
-    },
+      },
     "require-dev": {
-        "squizlabs/php_codesniffer": "*",
-        "wimg/php-compatibility": "*",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4"
+        "squizlabs/php_codesniffer": "3.4.1",
+        "wp-coding-standards/wpcs": "2.0.0",
+        "friendsofphp/php-cs-fixer": "v2.14.2"
     }
 }

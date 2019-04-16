@@ -1,0 +1,98 @@
+{% block html_head_container %}
+    <!--     BLock container for html header -> If u want to replace it on specific page, just use  block html_head_container with specific content inside -->
+    <!-- dont forget to include head.twig -->
+    {% include "head.twig" %}
+    <!-- Block header for injecting code on septic page -->
+    {% block header %}
+    {% endblock header %}
+    </head>
+{% endblock html_head_container %}
+
+<body class="{{ body_class }}">
+{% include "header.twig" %}
+
+{% block hero %}
+    {% set bg = post.meta('hero_background') %}
+    {% if bg.img_url %}
+        {% set img_url = bg.img_url %}
+    {% endif %}
+    {% if bg.img %}
+        {% set img_url = TimberImage(bg.img).src %}
+    {% endif %}
+    <style>
+        .hero {
+            background-image: url({{ img_url }}); /* default bg image*/
+            background-color: {{ bg.color }};
+            color: {{ post.hero_color }};
+        }
+        {% if bg.img %}
+        /*If user select bg image from media library add additional responsive styles*/
+        {# TODO: Upravit src sizes #}
+        @media only screen and (max-width: 768px) {
+            .hero {
+                background-image: url({{ TimberImage(bg.img).src('size') }});
+            }
+        }
+
+        @media only screen and (max-width: 1024px) {
+            .hero {
+                background-image: url({{ TimberImage(bg.img).src('size') }});
+            }
+        }
+
+        @media only screen and (max-width: 1440px) {
+            .hero {
+                background-image: url({{ TimberImage(bg.img).src('size') }});
+            }
+        }
+
+        @media only screen and (max-width: 1920px) {
+            .hero {
+                background-image: url({{ TimberImage(bg.img).src('size') }});
+            }
+        }
+
+        @media only screen and(min-width: 1921px) {
+            /*Retina*/
+            .hero {
+                background-image: url({{ TimberImage(bg.img).src('size') }});
+            }
+        }
+        {% endif %}
+    </style>
+    <div class="hero {% if post.hero_full == true %} hero--full {% endif %}">
+        <div class="hero__content">
+            <h1 class="hero__title">
+                {{ post.hero_title }}
+            </h1>
+            <p class="f3">
+                {{ post.hero_subtitle }}
+            </p>
+            <p class="hero__text container">
+                {{ post.hero_text }}
+            </p>
+            <div class="butttonGroup">
+                {% if post.meta('btn_primary').show == true %}
+                    {% set btn = post.meta('btn_primary') %}
+                    <a href="{{ btn.link }}" class="btn btn--{{ btn.style }}">{{ btn.text }}</a>
+                {% endif %}
+                {% if post.meta('btn_secondary').show == true %}
+                    {% set btn = post.meta('btn_secondary') %}
+                    <a href="{{ btn.link }}" class="btn btn--{{ btn.style }}">{{ btn.text }}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+<main id="content" role="main">
+    {% block content %}
+        <p>Žádný obsah</p> {# Fallback if no content #}
+    {% endblock content %}
+</main>
+
+{% block footer %}
+        {% include 'footer.twig' %}
+    {{ function('wp_footer') }}
+{% endblock %}
+</body>

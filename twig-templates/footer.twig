@@ -1,0 +1,15 @@
+<footer id="footer" class="bg-black white pt2 pb2 ">
+  <div class="footer-grid tc">
+      <p>&copy; {{ "now"|date('Y') }} - {{ site.name }}</p>
+      <p>Vytvořil: <a href="https://pc-webdesign.cz" title="Tvorba webových stránek">Patrik Čada Webdesign</a></p>
+    {{ function("dynamic_sidebar", "footer-widgets") }}
+  </div>
+</footer>
+
+{% if function('get_theme_mod','wpt_mobile_menu_layout') == 'offcanvas' %}
+    </div><!-- Close off-canvas content -->
+{% endif %}
+
+{{ function('wp_footer') }}
+</body>
+</html>

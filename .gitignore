@@ -9,4 +9,5 @@ config.yml
 *.swp
 packaged/
 wpcs/
-vendor/
+sitemap.json
+.history/
